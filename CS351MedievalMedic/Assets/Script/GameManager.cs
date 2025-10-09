@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour
 
     public DialogueManager dialogueManager;
     public SelectionManager selectionManager;
+    public CountdownTimerScript timer;
 
-    
+
     public GameObject nextButton;
     // 0 during day end changes, 1 during day end summary, 2 for day start endstart
     public int nextButtonMode;
@@ -51,8 +52,9 @@ public class GameManager : MonoBehaviour
     public void startFresh()
     {
         day = 1;
-        injured = (8 + 2 * day) + Random.Range(day * 1, day * 4);
-        dead = Random.Range(day * 1, day * 2); ;
+        nextButtonMode = 1;
+        dayEndPanel.SetActive(true);
+        dayStart();
     }
 
     public void dayEnd(int treated, int correct, int incorrect)
@@ -81,10 +83,11 @@ public class GameManager : MonoBehaviour
             StartCoroutine(Type());
 
         } else if (nextButtonMode == 1) {
-            int newlyInjured = (8 + 2 * day) + Random.Range(day * 1, day * 4);
-            int newlyDead = Random.Range(day * 1, day * 2);
+            int newlyInjured = (8 + 2 * day) + Random.Range(day * 1, day * 3);
+            int newlyDead = Random.Range(day * 1, day * 3);
             output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + injured + " + " + newlyInjured + " (new injuries)\nDead: " + dead + " + " + newlyDead + " (new casualties)";
             injured += newlyInjured;
+            dead += newlyDead;
 
             nextButtonMode = 2;
             StartCoroutine(Type());
@@ -92,14 +95,17 @@ public class GameManager : MonoBehaviour
         } else {
             nextButton.SetActive(false);
             dayEndPanel.SetActive(false);
+
+            timer.resetTimer();
+            selectionManager.enableTracker();
+            dialogueManager.promptUser();
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //startFresh();
-        //dayEnd(15, 10, 5);
+        startFresh();
     }
 
     // Update is called once per frame

@@ -33,6 +33,11 @@ public class DialogueManager : MonoBehaviour
         return currentCorrect;
     }
 
+    public void abortDialogue()
+    {
+        dialoguePanel.SetActive(false);
+    }
+
 
     private string[] treatmentOptions = new string[] {"Stitches", "Extraction", "Bone Setting", "Amputation", "Cauterization", 
                                                        "Medicinal Herbs", "Ointment", "Antiseptic", "Leeches", "Maggots",
@@ -63,9 +68,14 @@ public class DialogueManager : MonoBehaviour
     
     public void promptUser()
     {
-        int randomIndex = Random.Range(0, 12);
+        int randomIndex = Random.Range(0, 13);
         currentCorrect = treatmentOptions[randomIndex];
-        output = allStories[randomIndex, Random.Range(0, 2)];
+        output = allStories[randomIndex, Random.Range(0, 3)];
+
+
+        dialoguePanel.SetActive(true);
+        StartCoroutine(Type());
+
         //AFTER IMPLEMTATION - CALL DAY END & ENGAGE LOOP
     }
 
@@ -73,7 +83,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Place after start & walk in
     }
 
     // Update is called once per frame
