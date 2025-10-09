@@ -12,14 +12,14 @@ public class GameManager : MonoBehaviour
     private int dead;
 
     private string output;
-    
     public float typeSpeed;
     public TMP_Text dayEndText;
+    public GameObject dayEndPanel;
 
     public DialogueManager dialogueManager;
     public SelectionManager selectionManager;
 
-    public GameObject dayEndPanel;
+    
     public GameObject nextButton;
     // 0 during day end changes, 1 during day end summary, 2 for day start endstart
     public int nextButtonMode;

@@ -32,11 +32,26 @@ public class SelectionManager : MonoBehaviour
     public void selectionConfirmed()
     {
         treated++;
-        // ALL DROPDOWNS BLANK (auto fail)
+        // PRAYER SELECTED, HAIL MARY
         if (operationsSelector.value == 0
             && remediesSelector.value == 0
-            && otherSelector.value == 0)
+            && otherSelector.value == 2)
         {
+            int rando = Random.Range(1, 4);
+            if (rando == 4)
+            {
+                correct++;
+                //dialogueManager.correctFeedback();
+            } else
+            {
+                incorrect++;
+                //dialogueManager.incorrectFeedback();
+            }
+        }
+        else if (operationsSelector.value == 0
+            && remediesSelector.value == 0
+            && otherSelector.value == 0)
+        { // ALL DROPDOWNS BLANK (auto fail)
             incorrect++;
             // dialogueManager.emptyFeedback();
         
@@ -46,7 +61,6 @@ public class SelectionManager : MonoBehaviour
         {
             if (operationsSelector.options[operationsSelector.value].text == dialogueManager.getCondition()) {
                 correct++;
-                Debug.Log("YAY");
                 //dialogueManager.correctFeedback();
             } else
             {
