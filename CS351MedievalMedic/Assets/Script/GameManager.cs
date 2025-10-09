@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public float typeSpeed;
     public TMP_Text dayEndText;
 
+    public DialogueManager dialogueManager;
+    public SelectionManager selectionManager;
+
     public GameObject dayEndPanel;
     public GameObject nextButton;
     // 0 during day end changes, 1 during day end summary, 2 for day start endstart
@@ -95,8 +98,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startFresh();
-        dayEnd(15, 10, 5);
+        //startFresh();
+        //dayEnd(15, 10, 5);
     }
 
     // Update is called once per frame
