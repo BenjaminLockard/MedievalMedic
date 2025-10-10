@@ -61,11 +61,11 @@ public class GameManager : MonoBehaviour
     {
         nextButtonMode = 0;
 
-        output = "Day #" + day + " Summary\n---------------------------------------------\nTreated: " + treated + "\nInjured: " + injured + " - " + correct + " (correct choices)\nDead: " + dead + " + " + incorrect + " (incorrect choices)";
+        output = "Day #" + day + " Summary\n---------------------------------------------\nTreated: " + treated + "\nInjured: " + injured + " - " + (correct + incorrect) + " (all choices)\nDead: " + dead + " + " + incorrect + " (incorrect choices)";
 
         // update data
       
-        injured -= correct;
+        injured -= correct + incorrect;
         dead += incorrect;
 
         dayEndPanel.SetActive(true);

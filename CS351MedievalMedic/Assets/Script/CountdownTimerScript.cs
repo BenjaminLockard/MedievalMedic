@@ -18,7 +18,11 @@ public class CountdownTimerScript : MonoBehaviour
     {
         currentTime = 180;
         timerPanel.SetActive(true);
-    }     
+    }
+
+    public void hideTimer() {
+        timerPanel.SetActive(false);
+    }
 
     void Start()
     {

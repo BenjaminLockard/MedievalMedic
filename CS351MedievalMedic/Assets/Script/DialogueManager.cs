@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
 
     private string[] treatmentOptions = new string[] {"Stitches", "Extraction", "Bone Setting", "Amputation", "Cauterization", 
                                                        "Medicinal Herbs", "Ointment", "Antiseptic", "Leeches", "Maggots",
-                                                       "Rest", "Bandage", "Incense", };
+                                                       "Rest", "Bandage", "Incense"};
     // ALL STORIES - START ------------------------------------------------------------------------------------------------------------
 
     // Let Ben handle this mess...

@@ -540,6 +540,7 @@ MonoBehaviour:
   trackerText: {fileID: 1163385550}
   dialogueManager: {fileID: 1214174139}
   gameManager: {fileID: 916022936}
+  countdownTimerScript: {fileID: 824677807}
 --- !u!1 &186554190
 GameObject:
   m_ObjectHideFlags: 0

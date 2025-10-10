@@ -16,6 +16,7 @@ public class SelectionManager : MonoBehaviour
 
     public DialogueManager dialogueManager;
     public GameManager gameManager;
+    public CountdownTimerScript countdownTimerScript;
 
     private int treated;
     private int correct;
@@ -38,6 +39,7 @@ public class SelectionManager : MonoBehaviour
     {
         selectorPanel.SetActive(false);
         trackerPanel.SetActive(false);
+        countdownTimerScript.hideTimer();
         gameManager.dayEnd(treated, correct, incorrect);
         treated = 0;
         correct = 0;
