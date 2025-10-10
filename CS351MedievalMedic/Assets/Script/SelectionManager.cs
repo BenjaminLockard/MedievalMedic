@@ -22,9 +22,29 @@ public class SelectionManager : MonoBehaviour
     private int correct;
     private int incorrect;
 
+    private bool isPlayerInput;
+
     public void enableTracker()
     {
         trackerPanel.SetActive(true);
+    }
+
+    public void operationChanged()
+    {
+        remediesSelector.value = 0;
+        otherSelector.value = 0;
+    }
+
+    public void remedyChanged()
+    {
+        operationsSelector.value = 0;
+        otherSelector.value = 0;
+    }
+
+    public void otherChanged()
+    {
+        operationsSelector.value = 0;
+        remediesSelector.value = 0;
     }
 
     public void makeSelection()
@@ -141,12 +161,13 @@ public class SelectionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isPlayerInput = true;
         //makeSelection();
     }
 
     // Update is called once per frame
     void Update()
     {
-        trackerText.text = "Injured:   " + gameManager.getInjured() + "\nTreated:  " + treated + "\nDead:     " + gameManager.getDead();
+        trackerText.text = "Injured:   " + (gameManager.getInjured() - treated) + "\nTreated:  " + treated + "\nDead:     " + (gameManager.getDead() + incorrect);
     }
 }
