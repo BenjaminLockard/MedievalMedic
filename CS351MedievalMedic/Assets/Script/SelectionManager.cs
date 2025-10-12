@@ -5,6 +5,9 @@ using TMPro;
 
 public class SelectionManager : MonoBehaviour
 {
+    
+    public NPCWalk npc;
+
     public TMP_Dropdown operationsSelector;
     public TMP_Dropdown remediesSelector;
     public TMP_Dropdown otherSelector;
@@ -53,6 +56,9 @@ public class SelectionManager : MonoBehaviour
         operationsSelector.value = 0;
         remediesSelector.value = 0;
         otherSelector.value = 0;
+
+        //npc approaches
+        npc.Approach();
     }
    
     public void triggerDayEnd()
@@ -147,11 +153,18 @@ public class SelectionManager : MonoBehaviour
         selectorPanel.SetActive(false);
         dialogueManager.dialoguePanel.SetActive(false);
 
+        //npc leaves and returns
+        npc.LeaveAndReturn(2f);
+
         if (treated >= gameManager.getInjured())
         {
             triggerDayEnd();
         } else
         {
+            // Reactivate and bring NPC back for next option
+            npc.gameObject.SetActive(true);
+            npc.Approach();
+
             dialogueManager.promptUser();
         }
     }
