@@ -34,20 +34,38 @@ public class SelectionManager : MonoBehaviour
 
     public void operationChanged()
     {
-        remediesSelector.value = 0;
-        otherSelector.value = 0;
+        if (isPlayerInput)
+        {
+            isPlayerInput = false;
+            remediesSelector.value = 0;
+            otherSelector.value = 0;
+
+            isPlayerInput = true;
+        }
     }
 
     public void remedyChanged()
     {
-        operationsSelector.value = 0;
-        otherSelector.value = 0;
+        if (isPlayerInput)
+        {
+            isPlayerInput = false;
+            operationsSelector.value = 0;
+            otherSelector.value = 0;
+
+            isPlayerInput = true;
+        }
     }
 
     public void otherChanged()
     {
-        operationsSelector.value = 0;
-        remediesSelector.value = 0;
+        if (isPlayerInput)
+        {
+            isPlayerInput = false; 
+            operationsSelector.value = 0;
+            remediesSelector.value = 0;
+
+            isPlayerInput = true;
+        }
     }
 
     public void makeSelection()
