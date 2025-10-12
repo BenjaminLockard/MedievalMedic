@@ -40,6 +40,15 @@ public class SelectionManager : MonoBehaviour
             remediesSelector.value = 0;
             otherSelector.value = 0;
 
+            if (operationsSelector.value == 0)
+            {
+                confirmButton.SetActive(false);
+            }
+            else
+            {
+                confirmButton.SetActive(true);
+            }
+
             isPlayerInput = true;
         }
     }
@@ -51,6 +60,14 @@ public class SelectionManager : MonoBehaviour
             isPlayerInput = false;
             operationsSelector.value = 0;
             otherSelector.value = 0;
+
+            if(remediesSelector.value == 0)
+            {
+                confirmButton.SetActive(false);
+            } else
+            {
+                confirmButton.SetActive(true);
+            }
 
             isPlayerInput = true;
         }
@@ -64,18 +81,27 @@ public class SelectionManager : MonoBehaviour
             operationsSelector.value = 0;
             remediesSelector.value = 0;
 
-            isPlayerInput = true;
+            if(otherSelector.value == 0)
+            {
+                confirmButton.SetActive(false);
+            } else
+            {
+                confirmButton.SetActive(true);
+            }
+
+                isPlayerInput = true;
         }
     }
 
     public void makeSelection()
     {
         selectorPanel.SetActive(true);
+        confirmButton.SetActive(false);
         operationsSelector.value = 0;
         remediesSelector.value = 0;
         otherSelector.value = 0;
 
-        //npc approaches
+        //npc approaches 
         npc.Approach();
     }
    
