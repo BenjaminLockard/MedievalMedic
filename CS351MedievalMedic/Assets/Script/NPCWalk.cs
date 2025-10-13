@@ -50,7 +50,6 @@ public class NPCWalk : MonoBehaviour
     private IEnumerator LeaveAndComeBack(float delay)
     {
         yield return MoveToX(leaveX); // Walk away first
-        yield return new WaitForSeconds(delay); // Wait a bit off-screen
         yield return MoveToX(approachX); // Come back automatically
     }
 

@@ -114,6 +114,7 @@ public class SelectionManager : MonoBehaviour
         treated = 0;
         correct = 0;
         incorrect = 0;
+        npc.gameObject.SetActive(false);
     }
     
     // THE BIG ONE - ANSWER CHECK - START -----------------------------------------------------------------------------------------------------------
