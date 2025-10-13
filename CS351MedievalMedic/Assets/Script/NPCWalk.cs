@@ -33,6 +33,14 @@ public class NPCWalk : MonoBehaviour
         }
     }
 
+    public void ResetPosition()
+    {
+        StopAllCoroutines();
+        isMoving = false;
+        animator.SetBool("isWalking", false);
+        transform.position = new Vector3(leaveX, transform.position.y, transform.position.z);
+    }
+
     // Called when player opens UI or interaction starts
     public void Approach()
     {

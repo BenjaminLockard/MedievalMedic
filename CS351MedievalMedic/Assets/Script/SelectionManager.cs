@@ -114,7 +114,10 @@ public class SelectionManager : MonoBehaviour
         treated = 0;
         correct = 0;
         incorrect = 0;
-        npc.gameObject.SetActive(false);
+
+        // Deactivate NPC and reset position for next time
+        npc.ResetPosition();
+
     }
     
     // THE BIG ONE - ANSWER CHECK - START -----------------------------------------------------------------------------------------------------------
