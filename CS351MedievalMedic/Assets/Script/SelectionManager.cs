@@ -115,11 +115,24 @@ public class SelectionManager : MonoBehaviour
         correct = 0;
         incorrect = 0;
 
-        // Deactivate NPC and reset position for next time
+        //Make npc go away
+        StartCoroutine(EndOfDayExit());
+
+    }
+
+    private IEnumerator EndOfDayExit()
+    {
+        // Make NPC walk away
+        npc.Leave();
+
+        // Wait until NPC finishes walking off screen
+        yield return new WaitForSeconds(1f); // adjust based on your NPC speed and distance
+
+        // Once gone, reset position for next day quietly
         npc.ResetPosition();
 
     }
-    
+
     // THE BIG ONE - ANSWER CHECK - START -----------------------------------------------------------------------------------------------------------
     public void selectionConfirmed()
     {

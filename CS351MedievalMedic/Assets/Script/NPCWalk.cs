@@ -48,6 +48,13 @@ public class NPCWalk : MonoBehaviour
             StartCoroutine(MoveToX(approachX));
     }
 
+    // Called when the day ends (NPC walks off screen and stays gone)
+    public void Leave()
+    {
+        if (!isMoving)
+            StartCoroutine(MoveToX(leaveX));
+    }
+
     // Called after player confirms / ends interaction
     public void LeaveAndReturn(float delayBeforeReturn = 2f)
     {
