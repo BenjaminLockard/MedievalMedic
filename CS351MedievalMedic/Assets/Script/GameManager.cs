@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -47,12 +48,10 @@ public class GameManager : MonoBehaviour
         return dead;
     }
 
-
-
     // initialize / reset values for day #1
     public void startFresh()
     {
-        day = 1;
+        day = 0;
         nextButtonMode = 1;
         dayEndPanel.SetActive(true);
         dayStart();
@@ -79,21 +78,32 @@ public class GameManager : MonoBehaviour
         if (nextButtonMode == 0)
         {
             output = "Day #" + day + " Results\n---------------------------------------------\n\nInjured: " + injured + "\nDead: " + dead;
-            day += 1;
+            
 
             nextButtonMode = 1;
             StartCoroutine(Type());
 
         } else if (nextButtonMode == 1) {
-            int newlyInjured = (6 + 2 * day) + Random.Range(day * 1, day * 4);
-            int newlyDead = Random.Range(day * 1, day * 4);
-            output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + injured + " + " + newlyInjured + " (new injuries)\nDead: " + dead + " + " + newlyDead + " (new casualties)";
-            injured += newlyInjured;
-            dead += newlyDead;
+            if (day >= 3 && (injured + dead) < (day * 7))
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
+            else if ((injured + dead) >= (35))
+            {
+                SceneManager.LoadScene("LoseScreen");
+            } 
+            else 
+            { 
+                day += 1;
+                int newlyInjured = (6 + 2 * day) + Random.Range(day * 1, day * 4);
+                int newlyDead = Random.Range(day * 1, day * 3);
+                output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + injured + " + " + newlyInjured + " (new injuries)\nDead: " + dead + " + " + newlyDead + " (new casualties)";
+                injured += newlyInjured;
+                dead += newlyDead;
 
-            nextButtonMode = 2;
-            StartCoroutine(Type());
-
+                nextButtonMode = 2;
+                StartCoroutine(Type());
+            }
         } else {
             nextButton.SetActive(false);
             dayEndPanel.SetActive(false);
