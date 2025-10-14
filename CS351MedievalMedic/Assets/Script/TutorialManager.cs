@@ -1,122 +1,107 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;  // Added this for TMP_Text
+using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
     [Header("Tutorial UI")]
 
-    public GameObject[] tutorialBoxes; // Assign UI in Inspector
-    public float typingSpeed = 0.05f;  // Match to GameManager
-    public bool hasRunTutorial = false;
 
+    public GameObject[] tutorialBoxes; // Assign in inspector
+    public float typingSpeed = 0.05f;
 
-
-void Start()
-{
-    StartTutorial();
-}
-
-    public void SetTutorialComplete(bool value)
+    // Show specific tutorial box by index with typing effect
+    public void ShowTutorialBox(int index, string message)
     {
-        hasRunTutorial = value;
+        if (index < 0 || index >= tutorialBoxes.Length)
+        {
+            Debug.LogWarning("Invalid tutorial box index: " + index);
+            return;
+        }
+        StartCoroutine(TypeTextCoroutine(index, message));
     }
 
-    private Coroutine currentTypingCoroutine;
 
-    // tutorialstarts
-
-    public void StartTutorial()
+    // Hide specific tutorial box by index
+    public void HideTutorialBox(int index)
     {
-        if (hasRunTutorial) return;
-        StartCoroutine(RunTutorialSequence());
+        if (index < 0 || index >= tutorialBoxes.Length)
+        {
+            Debug.LogWarning("Invalid tutorial box index: " + index);
+            return;
+        }
+        tutorialBoxes[index].SetActive(false);
     }
 
-    private IEnumerator RunTutorialSequence()
+    // Coroutine to  typing effect for a specific box
+    private IEnumerator TypeTextCoroutine(int index, string message)
     {
-        // STEP 1: Introduction
-        yield return ShowTutorialBox(0, "Welcome, medic. Your army is currently at battle, and your mission is to treat injured soldiers. Press space to continue ");
-        yield return WaitForContinue();
-        HideTutorialBox(0);
-
-        // STEP 2: Stories
-        yield return ShowTutorialBox(1, "Each soldier will tell their story and explain what their injury is. Press space to continue");
-        yield return WaitForContinue();
-        HideTutorialBox(1);
-
-        // STEP 3: Choosing treatments
-        yield return ShowTutorialBox(2, "Use your knowledge to select the best treatment from the list presented to you. You will click the treatment you want to choose from the selector buttons. Press space to continue");
-        yield return WaitForContinue();
-        HideTutorialBox(2);
-
-        // STEP 4: Tracker
-        yield return ShowTutorialBox(3, "Keep an eye on the tracker above. It shows how many soldiers you've saved—or lost. You will also recieve an end of day counter showing your progress. Press space to continue");
-        yield return WaitForContinue();
-        HideTutorialBox(3);
-
-        // STEP 5: Timer
-        yield return ShowTutorialBox(4, "Time is of the essence. There is a timer on the top of the screen counting down from 3 minutes. Press space to finish tutorial");
-        yield return WaitForContinue();
-        HideTutorialBox(4);
-
-        EndTutorial();
-    }
-
-    private IEnumerator WaitForContinue()
-    {
-        // Waits for player to press Space to proceed (you can change this if needed)
-        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-    }
-
-    //  TYPING EFFECT 
-    private IEnumerator ShowTutorialBox(int index, string message)
-    {
-        if (index < 0 || index >= tutorialBoxes.Length) yield break;
-
         GameObject box = tutorialBoxes[index];
         TMP_Text textComponent = box.GetComponentInChildren<TMP_Text>();
-
         if (textComponent == null)
         {
-            Debug.LogError($"No TMP_Text component found in tutorial box at index {index}");
+            Debug.LogError($"No TMP_Text found in tutorial box at index {index}");
             yield break;
         }
 
         box.SetActive(true);
         textComponent.text = "";
 
-        foreach (char letter in message.ToCharArray())
+        foreach (char letter in message)
         {
             textComponent.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
     }
 
-    //  HIDING
-    public void HideTutorialBox(int index)
+    // ======= Example dedicated methods for each dialog box =======
+    public void ShowIntro()
     {
-        if (index < 0 || index >= tutorialBoxes.Length) return;
-        tutorialBoxes[index].SetActive(false);
+        ShowTutorialBox(0, "Welcome, medic. Your army is in battle and you must help heal your soldiers. Press space to continue");
     }
 
-    // FINISH TUTORIAL 
-    public void EndTutorial()
+    public void HideIntro()
     {
-        hasRunTutorial = true;
-        foreach (GameObject box in tutorialBoxes)
-        {
-            box.SetActive(false);
-        }
+        HideTutorialBox(0);
     }
 
-    // EXTERNAL ACCESS
-    public bool HasTutorialRun()
+    public void ShowStories()
     {
-        return hasRunTutorial;
+        ShowTutorialBox(1, "Each soldier will explain their injury to you with a story. Press space to continue");
     }
 
-    public void SetTutorialRun(bool value)
+    public void HideStories()
     {
-        hasRunTutorial = value;
+        HideTutorialBox(1);
+    }
+
+    public void ShowTreatments()
+    {
+        ShowTutorialBox(2, "Use your knowledge to select a treatment from the selector of options. If you choose correctly, you will heal them, if you choose incorrectly they will get hurt. Press space to continue");
+    }
+
+    public void HideTreatments()
+    {
+        HideTutorialBox(2);
+    }
+
+    public void ShowTracker()
+    {
+        ShowTutorialBox(3, "Keep an eye on the tracker above. It shows how many you've saved—or lost. Press space to continue");
+    }
+
+    public void HideTracker()
+    {
+        HideTutorialBox(3);
+    }
+
+    public void ShowTimer()
+    {
+        ShowTutorialBox(4, "Time is of the essence, there is a timer that counts down from 3 minutes. Press space to end tutorial");
+    }
+
+    public void HideTimer()
+    {
+        HideTutorialBox(4);
     }
 }
