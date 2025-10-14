@@ -57,7 +57,7 @@ public class TutorialManager : MonoBehaviour
     // ======= Example dedicated methods for each dialog box =======
     public void ShowIntro()
     {
-        ShowTutorialBox(0, "Welcome, medic. Your army is in battle and you must help heal your team of soldiers. They will come into your medic tent one at a time and you must listen to them and choose the appropriate treatment. Press space to continue");
+        ShowTutorialBox(0, "Welcome, medic. Your army is in battle and you must help heal your soldiers. Press space to continue");
     }
 
     public void HideIntro()
