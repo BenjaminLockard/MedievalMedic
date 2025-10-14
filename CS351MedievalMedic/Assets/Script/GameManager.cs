@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogueManager;
     public SelectionManager selectionManager;
     public CountdownTimerScript timer;
+    public NPCWalk npc;
 
 
     public GameObject nextButton;
@@ -98,7 +99,8 @@ public class GameManager : MonoBehaviour
 
             timer.resetTimer();
             selectionManager.enableTracker();
-            dialogueManager.promptUser();
+            npc.Approach();
+            //dialogueManager.promptUser();
         }
     }
 

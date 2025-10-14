@@ -107,5 +107,8 @@ public class NPCWalk : MonoBehaviour
             animator.SetBool(isWalkingParamName, false);
 
         isMoving = false;
+
+        if (targetX == approachX)
+            dialogueManager.promptUser();
     }
 }

@@ -102,7 +102,7 @@ public class SelectionManager : MonoBehaviour
         otherSelector.value = 0;
 
         //npc approaches 
-        npc.Approach();
+        //npc.Approach();
     }
    
     public void triggerDayEnd()
@@ -223,10 +223,10 @@ public class SelectionManager : MonoBehaviour
         } else
         {
             // Reactivate and bring NPC back for next option
-            npc.gameObject.SetActive(true);
-            npc.Approach();
+            //npc.gameObject.SetActive(true);
+            //npc.Approach();
 
-            dialogueManager.promptUser();
+            //dialogueManager.promptUser();
         }
     }
     // THE BIG ONE - ANSWER CHECK - END -------------------------------------------------------------------------------------------------------------
