@@ -5,7 +5,8 @@ using UnityEngine;
 public class NPCWalk : MonoBehaviour
 {
     public DialogueManager dialogueManager;
-    
+    public TutorialManager tutorialManager;
+
     [Header("Target X positions")]
     public float approachX = 2f; // X position when UI opens
     public float leaveX = 10f;   // X position when NPC walks away

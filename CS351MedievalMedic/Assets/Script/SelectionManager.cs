@@ -20,6 +20,7 @@ public class SelectionManager : MonoBehaviour
     public DialogueManager dialogueManager;
     public GameManager gameManager;
     public CountdownTimerScript countdownTimerScript;
+    public TutorialManager tutorialManager;
 
     public AudioSource selectAudio;
     public AudioClip selectSound;
@@ -106,6 +107,9 @@ public class SelectionManager : MonoBehaviour
         operationsSelector.value = 0;
         remediesSelector.value = 0;
         otherSelector.value = 0;
+
+        if (tutorialManager.isFirstRound())
+            tutorialManager.ShowTreatments();
 
         //npc approaches 
         //npc.Approach();
@@ -214,6 +218,18 @@ public class SelectionManager : MonoBehaviour
 
         treated++;
         selectorPanel.SetActive(false);
+
+        tutorialManager.HideStories();
+        tutorialManager.HideTreatments();
+        tutorialManager.HideTimer();
+        tutorialManager.HideTracker();
+
+
+        if (tutorialManager.isFirstRound())
+        {
+            tutorialManager.ShowTimer();
+            tutorialManager.ShowTracker();
+        }
 
         //npc leaves and returns
         npc.LeaveAndReturn(1f);

@@ -7,7 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     public SelectionManager selectionManager;
     public GameManager gameManager;
-
+    public TutorialManager tutorialManager;
 
     private string output;
     public float typeSpeed;
@@ -89,6 +89,9 @@ public class DialogueManager : MonoBehaviour
     
     public void promptUser()
     {
+        if (tutorialManager.isFirstRound())
+            tutorialManager.ShowStories();
+
         int randomIndex = Random.Range(0, 13);
         currentCorrect = treatmentOptions[randomIndex];
         output = allStories[randomIndex, Random.Range(0, 3)];

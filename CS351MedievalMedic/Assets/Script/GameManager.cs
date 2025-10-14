@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public DialogueManager dialogueManager;
     public SelectionManager selectionManager;
+    public TutorialManager tutorialManager;
     public CountdownTimerScript timer;
     public NPCWalk npc;
     public GameObject nextButton;
@@ -107,10 +108,14 @@ public class GameManager : MonoBehaviour
 
                 nextButtonMode = 2;
                 StartCoroutine(Type());
+
+                if (tutorialManager.isFirstRound())
+                    tutorialManager.ShowIntro();
             }
         } else {
             nextButton.SetActive(false);
             dayEndPanel.SetActive(false);
+            tutorialManager.HideIntro();
 
             timer.resetTimer();
             selectionManager.enableTracker();

@@ -8,7 +8,18 @@ public class TutorialManager : MonoBehaviour
 
 
     public GameObject[] tutorialBoxes; // Assign in inspector
-    public float typingSpeed = 0.05f;
+    public float typingSpeed;
+    private bool firstRound = true;
+
+    public bool isFirstRound()
+    {
+        return firstRound;
+    }
+
+    public void disableTutorial()
+    {
+        firstRound = false;
+    }
 
     // Show specific tutorial box by index with typing effect
     public void ShowTutorialBox(int index, string message)
@@ -57,7 +68,7 @@ public class TutorialManager : MonoBehaviour
     // ======= Example dedicated methods for each dialog box =======
     public void ShowIntro()
     {
-        ShowTutorialBox(0, "Welcome, medic. Your army is in battle and you must help heal your soldiers. Press space to continue");
+        ShowTutorialBox(0, "Welcome, medic. Your army is in battle and you must help heal your soldiers.");
     }
 
     public void HideIntro()
@@ -67,7 +78,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowStories()
     {
-        ShowTutorialBox(1, "Each soldier will explain their injury to you with a story. Press space to continue");
+        ShowTutorialBox(1, "Each soldier will explain their ailment to you with a story. \nSome stories will be clearer than others.");
     }
 
     public void HideStories()
@@ -77,7 +88,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTreatments()
     {
-        ShowTutorialBox(2, "Use your knowledge to select a treatment from the selector of options. If you choose correctly, you will heal them, if you choose incorrectly they will get hurt. Press space to continue");
+        ShowTutorialBox(2, "Use your knowledge to select a treatment from this list of options. \nIf you choose correctly, you will heal them. \nIf you choose incorrectly, they will die.");
     }
 
     public void HideTreatments()
@@ -87,7 +98,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTracker()
     {
-        ShowTutorialBox(3, "Keep an eye on the tracker above. It shows how many you've saved—or lost. Press space to continue");
+        ShowTutorialBox(3, "Keep an eye on the tracker above. \n\nIt shows how many soldiers need attention, how many you've seen, and how many you've lost.");
     }
 
     public void HideTracker()
@@ -97,7 +108,8 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTimer()
     {
-        ShowTutorialBox(4, "Time is of the essence, there is a timer that counts down from 3 minutes. Press space to end tutorial");
+        ShowTutorialBox(4, "Time is of the essence. \n\nThis timer shows how much time you have to treat soldiers each day.");
+        firstRound = false;
     }
 
     public void HideTimer()
