@@ -18,6 +18,9 @@ public class NPCWalk : MonoBehaviour
     private bool hasIsWalkingParam = false;
     private const string isWalkingParamName = "isWalking";
 
+    public AudioSource npcAudio;
+    public AudioClip npcSound;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -109,6 +112,9 @@ public class NPCWalk : MonoBehaviour
         isMoving = false;
 
         if (targetX == approachX)
+        {
             dialogueManager.promptUser();
+            npcAudio.PlayOneShot(npcSound, 1.0f);
+        }
     }
 }

@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     // 0 during day end changes, 1 during day end summary, 2 for day start endstart
     public int nextButtonMode;
 
+    public AudioSource gameAudio;
+    public AudioClip gameSound;
+
     IEnumerator Type()
     {
         nextButton.SetActive(false);
@@ -68,6 +71,7 @@ public class GameManager : MonoBehaviour
         injured -= correct + incorrect;
         dead += incorrect;
 
+        gameAudio.PlayOneShot(gameSound, 0.25f);
         dialogueManager.dialoguePanel.SetActive(false);
         dayEndPanel.SetActive(true);
         StartCoroutine(Type());

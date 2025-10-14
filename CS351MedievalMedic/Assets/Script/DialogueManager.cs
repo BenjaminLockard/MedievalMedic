@@ -14,6 +14,9 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
     public GameObject dialoguePanel;
 
+    public AudioSource npcAudio;
+    public AudioClip npcSound;
+
     IEnumerator Type()
     {
         dialogueText.text = "";
@@ -28,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     IEnumerator Feedback()
     {
         dialogueText.text = "";
+        npcAudio.PlayOneShot(npcSound, 1.0f);
         foreach (char letter in output)
         {
             dialogueText.text += letter;

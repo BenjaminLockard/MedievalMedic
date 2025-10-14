@@ -21,6 +21,9 @@ public class SelectionManager : MonoBehaviour
     public GameManager gameManager;
     public CountdownTimerScript countdownTimerScript;
 
+    public AudioSource selectAudio;
+    public AudioClip selectSound;
+
     private int treated;
     private int correct;
     private int incorrect;
@@ -36,6 +39,7 @@ public class SelectionManager : MonoBehaviour
     {
         if (isPlayerInput)
         {
+            selectAudio.PlayOneShot(selectSound, 0.25f);
             isPlayerInput = false;
             remediesSelector.value = 0;
             otherSelector.value = 0;
@@ -57,6 +61,7 @@ public class SelectionManager : MonoBehaviour
     {
         if (isPlayerInput)
         {
+            selectAudio.PlayOneShot(selectSound, 0.25f);
             isPlayerInput = false;
             operationsSelector.value = 0;
             otherSelector.value = 0;
@@ -77,6 +82,7 @@ public class SelectionManager : MonoBehaviour
     {
         if (isPlayerInput)
         {
+            selectAudio.PlayOneShot(selectSound, 0.25f);
             isPlayerInput = false; 
             operationsSelector.value = 0;
             remediesSelector.value = 0;
@@ -136,6 +142,7 @@ public class SelectionManager : MonoBehaviour
     // THE BIG ONE - ANSWER CHECK - START -----------------------------------------------------------------------------------------------------------
     public void selectionConfirmed()
     {
+        selectAudio.PlayOneShot(selectSound, 0.75f);
         // PRAYER SELECTED, HAIL MARY
         if (operationsSelector.value == 0
             && remediesSelector.value == 0
@@ -203,7 +210,7 @@ public class SelectionManager : MonoBehaviour
                 //dialogueManager.incorrectFeedback();
             }
 
-        } 
+        }
 
         treated++;
         selectorPanel.SetActive(false);
