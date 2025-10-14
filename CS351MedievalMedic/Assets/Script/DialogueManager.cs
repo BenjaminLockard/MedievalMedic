@@ -25,6 +25,18 @@ public class DialogueManager : MonoBehaviour
         selectionManager.makeSelection();
     }
 
+    IEnumerator Feedback()
+    {
+        dialogueText.text = "";
+        foreach (char letter in output)
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(typeSpeed);
+        }
+        yield return new WaitForSeconds(1f);
+        dialoguePanel.SetActive(false);
+    }
+
     // Will sync up correct treatment w/ corresponding trio of stories
     private string currentCorrect;
 
@@ -40,9 +52,13 @@ public class DialogueManager : MonoBehaviour
 
 
     private string[] treatmentOptions = new string[] {"Stitches", "Extraction", "Bone Setting", "Amputation", "Cauterization", 
-                                                       "Medicinal Herbs", "Ointment", "Antiseptic", "Leeches", "Maggots",
+                                                       "Medicinal Herbs", "Ointment", "Disinfectant", "Leeches", "Maggots",
                                                        "Rest", "Bandage", "Incense"};
-    // ALL STORIES - START ------------------------------------------------------------------------------------------------------------
+
+    private string[] positiveFeedback = new string[] { "Great idea, you really know your stuff.", "Ooh, why didn't I think of that?", "That sounds right, thank you!", "Perfect, you're the best!", "That'll do the trick, good thinking." };
+    private string[] negativeFeedback = new string[] { "Really? I hope you're right...", "Well, you're the expert, I guess...", "I don't know about this...", "Uhhh, are you sure that'll work...?", "Sure, what's the worst that could happen?" };
+
+    // ALL DIALOGUE - START ------------------------------------------------------------------------------------------------------------
 
     // Let Ben handle this mess...
     // Replace each element soldiers' story dialogue, see data sheet for some ideas
@@ -77,9 +93,16 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
         StartCoroutine(Type());
 
-        //AFTER IMPLEMTATION - CALL DAY END & ENGAGE LOOP
     }
 
+    public void provideFeedback(bool wasCorrect)
+    {
+        if (wasCorrect)
+            output = positiveFeedback[Random.Range(0, 5)];
+        else
+            output = negativeFeedback[Random.Range(0, 5)];
+        StartCoroutine(Feedback());
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -141,33 +141,29 @@ public class SelectionManager : MonoBehaviour
             && remediesSelector.value == 0
             && otherSelector.value == 2)
         {
-            int rando = Random.Range(1, 4);
+            int rando = Random.Range(1, 5);
             if (rando == 4)
             {
+                dialogueManager.provideFeedback(true);
                 correct++;
                 //dialogueManager.correctFeedback();
             } else
             {
+                dialogueManager.provideFeedback(false);
                 incorrect++;
                 //dialogueManager.incorrectFeedback();
             }
-        }
-        else if (operationsSelector.value == 0
-            && remediesSelector.value == 0
-            && otherSelector.value == 0)
-        { // ALL DROPDOWNS BLANK (auto fail)
-            incorrect++;
-            // dialogueManager.emptyFeedback();
-        
         } // ONLY OPERATION SELECTED
         else if (remediesSelector.value == 0
                     && otherSelector.value == 0)
         {
             if (operationsSelector.options[operationsSelector.value].text == dialogueManager.getCondition()) {
+                dialogueManager.provideFeedback(true);
                 correct++;
                 //dialogueManager.correctFeedback();
             } else
             {
+                dialogueManager.provideFeedback(false);
                 incorrect++;
                 //dialogueManager.incorrectFeedback();
             }
@@ -179,11 +175,13 @@ public class SelectionManager : MonoBehaviour
         {
             if (remediesSelector.options[remediesSelector.value].text == dialogueManager.getCondition())
             {
+                dialogueManager.provideFeedback(true);
                 correct++;
                 //dialogueManager.correctFeedback();
             }
             else
             {
+                dialogueManager.provideFeedback(false);
                 incorrect++;
                 //dialogueManager.incorrectFeedback();
             }
@@ -194,40 +192,27 @@ public class SelectionManager : MonoBehaviour
         {
             if (otherSelector.options[otherSelector.value].text == dialogueManager.getCondition())
             {
+                dialogueManager.provideFeedback(true);
                 correct++;
                 //dialogueManager.correctFeedback();
             }
             else
             {
+                dialogueManager.provideFeedback(false);
                 incorrect++;
                 //dialogueManager.incorrectFeedback();
             }
 
-        } // MULTIPLE SELECTIONS (auto fail)
-        else
-        {
-            incorrect++;
-            // dialogueManager.excessFeedback();
-        }
+        } 
 
         treated++;
         selectorPanel.SetActive(false);
-        dialogueManager.dialoguePanel.SetActive(false);
 
         //npc leaves and returns
         npc.LeaveAndReturn(2f);
 
         if (treated >= gameManager.getInjured())
-        {
             triggerDayEnd();
-        } else
-        {
-            // Reactivate and bring NPC back for next option
-            //npc.gameObject.SetActive(true);
-            //npc.Approach();
-
-            //dialogueManager.promptUser();
-        }
     }
     // THE BIG ONE - ANSWER CHECK - END -------------------------------------------------------------------------------------------------------------
 

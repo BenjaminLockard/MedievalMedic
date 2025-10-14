@@ -7387,7 +7387,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 1214174139}
   approachX: -4.5
   leaveX: -15
-  speed: 10
+  speed: 7.5
 --- !u!4 &1004744543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013857073264, guid: 315058484cf2044ce8dcb608b4678ff6, type: 3}
@@ -14783,7 +14783,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Ointment
       m_Image: {fileID: 0}
-    - m_Text: Antiseptic
+    - m_Text: Disinfectant
       m_Image: {fileID: 0}
     - m_Text: Leeches
       m_Image: {fileID: 0}
