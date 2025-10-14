@@ -216,7 +216,7 @@ public class SelectionManager : MonoBehaviour
         selectorPanel.SetActive(false);
 
         //npc leaves and returns
-        npc.LeaveAndReturn(2f);
+        npc.LeaveAndReturn(1f);
 
         if (treated >= gameManager.getInjured())
             triggerDayEnd();

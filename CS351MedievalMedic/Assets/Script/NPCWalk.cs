@@ -61,7 +61,7 @@ public class NPCWalk : MonoBehaviour
     }
 
     // Called after player confirms / ends interaction
-    public void LeaveAndReturn(float delayBeforeReturn = 2f)
+    public void LeaveAndReturn(float delayBeforeReturn = 1f)
     {
         if (!isMoving)
             StartCoroutine(LeaveAndComeBack(delayBeforeReturn));
