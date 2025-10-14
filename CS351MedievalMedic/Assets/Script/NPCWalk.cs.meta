@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 59ee67d6087949f4392926a260d98664
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - dialogueManager: {instanceID: 0}
+  - npcSound: {fileID: 8300000, guid: 3e6555cab895d2d4f8af5a211a8168e0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
