@@ -577,7 +577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &573696195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
   - Success! You treated enough soldiers in order for the battle to be won. Your
     valient contributions shall be recorded for future generations to read about
     in awe...
-  typingSpeed: 0.05
+  typingSpeed: 0.025
 --- !u!4 &1135615206
 Transform:
   m_ObjectHideFlags: 0
