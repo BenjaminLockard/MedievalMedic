@@ -1047,8 +1047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 277.86957, y: 84.63989}
-  m_SizeDelta: {x: -570.608, y: -286.9621}
+  m_AnchoredPosition: {x: 277.86957, y: 100.81846}
+  m_SizeDelta: {x: -570.608, y: -254.605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235744447
 MonoBehaviour:
@@ -1935,13 +1935,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a424dd47197ae74c8bf2647156eebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionManager: {fileID: 94182915}
+  countdownTimerScript: {fileID: 824677807}
   tutorialBoxes:
   - {fileID: 1663857198}
   - {fileID: 1100809195}
   - {fileID: 235744445}
   - {fileID: 247394525}
   - {fileID: 1347281616}
-  typingSpeed: 0.01
+  typingSpeed: 0.015
 --- !u!1 &637725617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,7 +4961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640e18ff67b3b554ca2bb28a2b486c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeSpeed: 0.001
+  typeSpeed: 0.00025
   dayEndText: {fileID: 1969474492}
   dayEndPanel: {fileID: 186554190}
   dialogueManager: {fileID: 1214174139}
@@ -4983,7 +4985,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7e83587dc4679ad4783e91368c3c601e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.35
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9160,8 +9162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -228, y: -65.333}
-  m_SizeDelta: {x: -515.5082, y: -356.03}
+  m_AnchoredPosition: {x: -228, y: -57.855522}
+  m_SizeDelta: {x: -515.5082, y: -341.0751}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100809197
 MonoBehaviour:
@@ -10194,7 +10196,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -10.785721, z: 0, w: -8.988098}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15163,7 +15165,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.358368, y: 0, z: 17.605255, w: 0}
+  m_margin: {x: 9.358368, y: 3.457634, z: 17.605255, w: -8.521503}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

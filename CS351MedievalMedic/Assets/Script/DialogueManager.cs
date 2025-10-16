@@ -25,7 +25,15 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typeSpeed);
         }
-        selectionManager.makeSelection();
+
+        if (tutorialManager.isFirstRound())
+        {
+            tutorialManager.ShowStories();
+        }
+        else
+        {
+            selectionManager.makeSelection();
+        }
     }
 
     IEnumerator Feedback()
@@ -37,7 +45,7 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typeSpeed);
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         dialoguePanel.SetActive(false);
     }
 
@@ -79,7 +87,7 @@ public class DialogueManager : MonoBehaviour
         {"I’ve left this wound unattended for too long, it’s started to blacken and rot.", "Looks like I’ve got some kind of ulcer on my foot, maybe I need new boots…", "Last night’s battle was awful. Bitter cold, sharp winds, and rain on top of it all. Thankfully the worst injury I got was frostbite."},
         {"I’ve been stationed on the front lines for weeks… I can barely stand at this point, let alone fight.", "I lost my footing during training, twisted my ankle and tumbled. I don’t think it’s broken but it’s painful to walk.", "I… uh… hit in the… um… head hurt…"},
         //No row for Prayer, random chance of success w/ any condition
-        {"That last battle was hectic, left me with too many bruises and wounds to count. None too deep, thankfully, I just need them covered.", "Had to train with a drunk guy, he thought it’d be fine to use a real weapon. He was terrible, but still gave me some shallow cuts.", "Somebody startled me while I sifting through the armory, led to me getting this cut on my hand."},
+        {"That last battle was hectic, left me with too many bruises and wounds to count. None too deep, thankfully, I just need them covered.", "Had to train with a drunk guy, he thought it’d be fine to use a real weapon. He was terrible, but still gave me some shallow cuts.", "Somebody startled me while I was sifting through the armory, led to me getting this cut on my hand."},
         {"All this violence is starting to get to me, I can’t focus or sleep. Do you have anything to calm my nerves?", "I can’t do this anymore, I’m just too stressed. It’s getting harder to breathe… my hands won’t stop shaking…", "Hey, I’m just looking around. It smells terrible in here, you should do something about that."},
         //No row for Bloodletting, always fails
 
@@ -89,8 +97,6 @@ public class DialogueManager : MonoBehaviour
     
     public void promptUser()
     {
-        if (tutorialManager.isFirstRound())
-            tutorialManager.ShowStories();
 
         int randomIndex = Random.Range(0, 13);
         currentCorrect = treatmentOptions[randomIndex];

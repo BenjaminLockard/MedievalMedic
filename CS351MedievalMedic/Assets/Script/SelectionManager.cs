@@ -25,9 +25,9 @@ public class SelectionManager : MonoBehaviour
     public AudioSource selectAudio;
     public AudioClip selectSound;
 
-    private int treated;
     private int correct;
     private int incorrect;
+    private int healed = 0;
 
     private bool isPlayerInput;
 
@@ -108,8 +108,8 @@ public class SelectionManager : MonoBehaviour
         remediesSelector.value = 0;
         otherSelector.value = 0;
 
-        if (tutorialManager.isFirstRound())
-            tutorialManager.ShowTreatments();
+        //if (tutorialManager.isFirstRound())
+        //    tutorialManager.ShowTreatments();
 
         //npc approaches 
         //npc.Approach();
@@ -120,8 +120,8 @@ public class SelectionManager : MonoBehaviour
         selectorPanel.SetActive(false);
         trackerPanel.SetActive(false);
         countdownTimerScript.hideTimer();
-        gameManager.dayEnd(treated, correct, incorrect);
-        treated = 0;
+        gameManager.dayEnd(correct, incorrect);
+        healed += correct;
         correct = 0;
         incorrect = 0;
 
@@ -215,26 +215,24 @@ public class SelectionManager : MonoBehaviour
             }
 
         }
-
-        treated++;
         selectorPanel.SetActive(false);
 
         tutorialManager.HideStories();
         tutorialManager.HideTreatments();
         tutorialManager.HideTimer();
-        tutorialManager.HideTracker();
+        //tutorialManager.HideTracker();
 
 
         if (tutorialManager.isFirstRound())
         {
             tutorialManager.ShowTimer();
-            tutorialManager.ShowTracker();
+            //tutorialManager.ShowTracker();
         }
 
         //npc leaves and returns
         npc.LeaveAndReturn(1f);
 
-        if (treated >= gameManager.getInjured())
+        if (correct + incorrect >= gameManager.getInjured())
             triggerDayEnd();
     }
     // THE BIG ONE - ANSWER CHECK - END -------------------------------------------------------------------------------------------------------------
@@ -250,6 +248,6 @@ public class SelectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        trackerText.text = "Injured:   " + (gameManager.getInjured() - treated) + "\nTreated:  " + treated + "\nDead:     " + (gameManager.getDead() + incorrect);
+        trackerText.text = "Injured:   " + (gameManager.getInjured() - (correct + incorrect)) + "\nHealed:   " + (healed + correct) + "\nDead:     " + (gameManager.getDead() + incorrect);
     }
 }

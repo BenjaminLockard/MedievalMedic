@@ -6,7 +6,8 @@ public class TutorialManager : MonoBehaviour
 {
     [Header("Tutorial UI")]
 
-
+    public SelectionManager selectionManager;
+    public CountdownTimerScript countdownTimerScript;
     public GameObject[] tutorialBoxes; // Assign in inspector
     public float typingSpeed;
     private bool firstRound = true;
@@ -47,6 +48,12 @@ public class TutorialManager : MonoBehaviour
     // Coroutine to  typing effect for a specific box
     private IEnumerator TypeTextCoroutine(int index, string message)
     {
+        if (index == 3 || index == 4)
+        {
+            yield return new WaitForSeconds(4f);
+            countdownTimerScript.resetTimer();
+        }
+
         GameObject box = tutorialBoxes[index];
         TMP_Text textComponent = box.GetComponentInChildren<TMP_Text>();
         if (textComponent == null)
@@ -63,6 +70,13 @@ public class TutorialManager : MonoBehaviour
             textComponent.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        if (index == 1)
+        {
+            yield return new WaitForSeconds(0.65f);
+            selectionManager.makeSelection();
+            ShowTreatments();
+        }
     }
 
     // ======= Example dedicated methods for each dialog box =======
@@ -78,7 +92,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowStories()
     {
-        ShowTutorialBox(1, "Each soldier will explain their ailment to you with a story. \nSome stories will be clearer than others.");
+        ShowTutorialBox(1, "Each soldier will explain their ailment to you with a story. \n\nSome stories will be clearer than others.");
     }
 
     public void HideStories()
@@ -88,7 +102,7 @@ public class TutorialManager : MonoBehaviour
 
     public void ShowTreatments()
     {
-        ShowTutorialBox(2, "Use your knowledge to select a treatment from this list of options. \nIf you choose correctly, you will heal them. \nIf you choose incorrectly, they will die.");
+        ShowTutorialBox(2, "Use your knowledge to select a treatment from this list of options. \n\nIf you choose correctly, you will heal them. \n\nIf you choose incorrectly, they will die.");
     }
 
     public void HideTreatments()

@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
         nextButton.SetActive(true);
+
+        if (tutorialManager.isFirstRound())
+            tutorialManager.ShowIntro();
     }
 
     // getters if numbers needed elsewhere
@@ -61,11 +64,11 @@ public class GameManager : MonoBehaviour
         dayStart();
     }
 
-    public void dayEnd(int treated, int correct, int incorrect)
+    public void dayEnd(int correct, int incorrect)
     {
         nextButtonMode = 0;
 
-        output = "Day #" + day + " Summary\n---------------------------------------------\nTreated: " + treated + "\nInjured: " + injured + " - " + (correct + incorrect) + " (all choices)\nDead: " + dead + " + " + incorrect + " (incorrect choices)";
+        output = "Day #" + day + " Summary\n---------------------------------------------\nHealed: " + correct  + "  (correct choices)\nInjured: " + injured + " - " + (correct + incorrect) + "  (all choices)\nDead: " + dead + " + " + incorrect + "  (incorrect choices)";
 
         // update data
       
@@ -102,22 +105,21 @@ public class GameManager : MonoBehaviour
                 day += 1;
                 int newlyInjured = (6 + 2 * day) + Random.Range(day * 1, day * 4);
                 int newlyDead = Random.Range(day * 1, day * 3);
-                output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + injured + " + " + newlyInjured + " (new injuries)\nDead: " + dead + " + " + newlyDead + " (new casualties)";
+                output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + injured + " + " + newlyInjured + "  (new injuries)\nDead: " + dead + " + " + newlyDead + "  (new casualties)";
                 injured += newlyInjured;
                 dead += newlyDead;
 
                 nextButtonMode = 2;
                 StartCoroutine(Type());
 
-                if (tutorialManager.isFirstRound())
-                    tutorialManager.ShowIntro();
             }
         } else {
             nextButton.SetActive(false);
             dayEndPanel.SetActive(false);
             tutorialManager.HideIntro();
 
-            timer.resetTimer();
+            if (!tutorialManager.isFirstRound()) 
+                timer.resetTimer();
             selectionManager.enableTracker();
             npc.Approach();
             //dialogueManager.promptUser();
