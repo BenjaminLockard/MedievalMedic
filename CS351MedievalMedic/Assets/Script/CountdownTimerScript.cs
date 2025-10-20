@@ -21,6 +21,7 @@ public class CountdownTimerScript : MonoBehaviour
     }
 
     public void hideTimer() {
+        currentTime = 999;
         timerPanel.SetActive(false);
     }
 

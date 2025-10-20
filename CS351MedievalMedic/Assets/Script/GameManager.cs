@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
 
     private int day;
+    private int healed;
     private int injured;
     private int dead;
 
@@ -68,10 +69,11 @@ public class GameManager : MonoBehaviour
     {
         nextButtonMode = 0;
 
-        output = "Day #" + day + " Summary\n---------------------------------------------\nHealed: " + correct  + "  (correct choices)\nInjured: " + injured + " - " + (correct + incorrect) + "  (all choices)\nDead: " + dead + " + " + incorrect + "  (incorrect choices)";
+        output = "Day #" + day + " Summary\n---------------------------------------------\nInjured: " + injured + " - " + (correct + incorrect) + "   (all choices)\nHealed: " + healed + " + " + correct  + "   (correct choices)\nDead: " + dead + " + " + incorrect + "   (incorrect choices)";
 
         // update data
-      
+
+        healed += correct;
         injured -= correct + incorrect;
         dead += incorrect;
 
@@ -85,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         if (nextButtonMode == 0)
         {
-            output = "Day #" + day + " Results\n---------------------------------------------\n\nInjured: " + injured + "\nDead: " + dead;
+            output = "Day #" + day + " Results\n---------------------------------------------\nInjured: " + injured + "\nHealed: " + healed + "\nDead: " + dead;
             
 
             nextButtonMode = 1;
@@ -101,17 +103,23 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("LoseScreen");
             } 
             else 
-            { 
+            {
                 day += 1;
                 int newlyInjured = (6 + 2 * day) + Random.Range(day * 1, day * 4);
                 int newlyDead = Random.Range(day * 1, day * 3);
-                output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + injured + " + " + newlyInjured + "  (new injuries)\nDead: " + dead + " + " + newlyDead + "  (new casualties)";
+                if (tutorialManager.isFirstRound())
+                {
+                    output = "Day #" + day + " Start\n---------------------------------------------\n\nInjured: " + newlyInjured + "   (soldiers to heal)\nDead: " + newlyDead + "   (casualties of war)";
+                }
+                else
+                {
+                    output = "Day #" + day + " Start\n---------------------------------------------\nInjured: " + injured + " + " + newlyInjured + "   (new injuries)\nHealed: " + healed + "\nDead: " + dead + " + " + newlyDead + "   (new casualties)";
+                }
                 injured += newlyInjured;
                 dead += newlyDead;
 
                 nextButtonMode = 2;
                 StartCoroutine(Type());
-
             }
         } else {
             nextButton.SetActive(false);

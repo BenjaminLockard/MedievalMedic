@@ -146,7 +146,7 @@ public class SelectionManager : MonoBehaviour
     // THE BIG ONE - ANSWER CHECK - START -----------------------------------------------------------------------------------------------------------
     public void selectionConfirmed()
     {
-        selectAudio.PlayOneShot(selectSound, 0.75f);
+        selectAudio.PlayOneShot(selectSound, 0.25f);
         // PRAYER SELECTED, HAIL MARY
         if (operationsSelector.value == 0
             && remediesSelector.value == 0
