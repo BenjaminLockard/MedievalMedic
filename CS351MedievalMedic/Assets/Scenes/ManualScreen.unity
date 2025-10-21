@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -837,40 +837,39 @@ MonoBehaviour:
     Extraction: Remove foreign objects
     from the body
 
-    Bone Setting: Re-align broken bones
+    Bone Setting: Realign broken bones
 
     Amputation: Sever
-    (cut) irreparably damaged limbs
+    irreparably damaged limbs
 
-    Cauterization: Quell (stop) profuse bleeding
-    (by burning wounded skin/flesh)
-
-
-    Medicinal Herbs: Cure common illnesses
-
-    Ointment:
-    Heal skin injuries or irritation
-
-    Disinfectant: Prevent or reduce infection
-
-    Leeches:
-    Restore proper blood flow
-
-    Maggots: Safely consume dead flesh
+    Cauterization: Quell profuse bleeding
 
 
-    Rest:
-    Allow the body to address injuries
+    Medicinal
+    Herbs: Cure common illnesses
 
-    Prayer: Hope for the best
+    Ointment: Heal skin injuries or irritation
 
-    Bandage:
-    Protect minor wounds
+    Disinfectant:
+    Prevent or reduce infection
 
-    Incense: Scents that assist in relaxation
+    Leeches: Restore proper blood flow
 
-    Bloodletting:
-    Relieve body of "bad blood" (supposedly)'
+    Maggots:
+    Safely consume dead flesh
+
+
+    Rest: Allow the body to address injuries
+
+    Prayer:
+    Hope for the best
+
+    Bandage: Protect minor wounds
+
+    Incense: Scents that
+    assist in relaxation
+
+    Bloodletting: Relieve body of "bad blood," supposedly'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -904,7 +903,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
