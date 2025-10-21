@@ -3,6 +3,7 @@
     Assignment: Team Project (Medieval Medic)
     Description: Manages the title screen
     Initially Created: Sunday, 10/12/25
+        Modified: Monday, 10/20/25
 */
 
 using System.Collections;
@@ -16,6 +17,12 @@ public class TitleScreenManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("MedivalMedicStarter"); // Loads main game scene
+    }
+
+    // This function is called when the "Manual" button is clicked
+    public void ToManual()
+    {
+        SceneManager.LoadScene("ManualScreen"); // Loads the manual (for treatment options) screen
     }
 
     // This function is called when the "Quit" button is clicked

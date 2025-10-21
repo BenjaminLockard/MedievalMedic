@@ -260,7 +260,7 @@ MonoBehaviour:
   - Unfortunately, your efforts were not enough for the battle to be won. Perhaps
     in the future you will make better decisions so not as many soldiers perish while
     under your care..
-  typingSpeed: 0.025
+  typingSpeed: 0.02
 --- !u!4 &130638111
 Transform:
   m_ObjectHideFlags: 0
@@ -311,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -104}
+  m_AnchoredPosition: {x: 0, y: -164}
   m_SizeDelta: {x: 80, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &328669142
@@ -806,8 +806,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -890,8 +890,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.54811114}
-  m_AnchoredPosition: {x: 0, y: 105}
-  m_SizeDelta: {x: 107.5, y: 22.9693}
+  m_AnchoredPosition: {x: -0.000011444, y: 168}
+  m_SizeDelta: {x: 141.6081, y: 29.7909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1100044292
 MonoBehaviour:
@@ -940,8 +940,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -976,7 +976,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.000026737449, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1055,8 +1055,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1121,8 +1121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.3753, y: 16.6865}
-  m_SizeDelta: {x: 356.7506, y: 118.7126}
+  m_AnchoredPosition: {x: 0.0000076294, y: 55.22}
+  m_SizeDelta: {x: 598.9183, y: 195.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1530161960
 GameObject:
@@ -1226,8 +1226,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -69}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 0.0000061989, y: -64.492}
+  m_SizeDelta: {x: 157.519, y: 43.644}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620587075
 MonoBehaviour:

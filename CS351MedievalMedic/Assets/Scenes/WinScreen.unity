@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: 15}
-  m_SizeDelta: {x: 332.1479, y: 103.0433}
+  m_AnchoredPosition: {x: -0.0000095367, y: 37}
+  m_SizeDelta: {x: 431.0615, y: 152.5001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &289174221
 MonoBehaviour:
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -293,8 +293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000005722, y: -74}
-  m_SizeDelta: {x: 115, y: 30}
+  m_AnchoredPosition: {x: 0.36234, y: -80.8216}
+  m_SizeDelta: {x: 143.9919, y: 43.6432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &324654961
 MonoBehaviour:
@@ -860,7 +860,7 @@ MonoBehaviour:
   - Success! You treated enough soldiers in order for the battle to be won. Your
     valient contributions shall be recorded for future generations to read about
     in awe...
-  typingSpeed: 0.025
+  typingSpeed: 0.02
 --- !u!4 &1135615206
 Transform:
   m_ObjectHideFlags: 0
@@ -1089,8 +1089,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000066757, y: 104.9264}
-  m_SizeDelta: {x: 107.4537, y: 37.8528}
+  m_AnchoredPosition: {x: 0.0000019073, y: 171.7676}
+  m_SizeDelta: {x: 143.2672, y: 58.3177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758999412
 MonoBehaviour:
@@ -1139,8 +1139,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1223,8 +1223,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0.000017166138}
+  m_SizeDelta: {x: -0.000076294, y: 0.000053406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1930621480
 MonoBehaviour:
@@ -1273,8 +1273,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
